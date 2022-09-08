@@ -77,4 +77,14 @@ add_action('rest_api_init',function(){
         }
     ]);
 });
+
+function add_rand_orderby_rest_post_collection_params( $query_params ) {
+
+	$query_params['orderby']['enum'][] = 'rand';
+
+	return $query_params;
+
+}
+
+add_filter( 'rest_post_collection_params', 'add_rand_orderby_rest_post_collection_params' );
 ?>
